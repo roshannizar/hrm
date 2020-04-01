@@ -28,6 +28,7 @@ dependencies:
   aad_oauth: ^0.1.8
   provider: ^3.1.0
   jwt_decode: ^0.1.0
+  shared_preferences: ^0.5.6+3
 
 dev_dependencies:
   flutter_test:
