@@ -20,6 +20,7 @@ class _SignInState extends State<SignIn> {
             FlatButton.icon(
               onPressed: () async {
                 await AuthService().signInWithMicrosoft();
+                Navigator.pushReplacementNamed(context, '/dashboard');
               },
               icon: Icon(Icons.arrow_forward),
               label: Text('Login with Microsoft'),
@@ -27,6 +28,8 @@ class _SignInState extends State<SignIn> {
              FlatButton.icon(
               onPressed: () async{
                 await AuthService().signOutMicrosoft();
+
+                Navigator.pushNamed(context, '/');
               },
               icon: Icon(Icons.exit_to_app),
               label: Text('Logout with Microsoft'),
