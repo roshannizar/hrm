@@ -57,10 +57,13 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           format: format,
+                          onChanged: (value) {
+                            datetime = DateFormat('y/MM/d').format(value);
+                          },
                           onShowPicker: (context, currentValue) {
                             setState(() {
                               datetime =
-                                  DateFormat('y/MM/d').format(currentValue);
+                                  DateFormat('y/MM/d').format(currentValue ?? DateTime.now());
                             });
                             return showDatePicker(
                                 context: context,

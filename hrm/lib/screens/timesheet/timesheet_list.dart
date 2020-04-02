@@ -15,7 +15,8 @@ class _TimesheetListState extends State<TimesheetList> {
 
     return timesheets.length == 0
         ? Container(
-            child: Text('No records found'),
+          alignment: Alignment.center,
+            child: Image.asset('assets/norecordfound.png',fit: BoxFit.cover,),
           )
         : ListView.builder(
             itemCount: timesheets.length,

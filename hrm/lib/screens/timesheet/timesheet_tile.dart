@@ -21,7 +21,9 @@ class _TimesheetTileState extends State<TimesheetTile> {
             children: <Widget>[
               ListTile(
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/view');
+                  },
                   icon: Icon(Icons.remove_red_eye, color: Colors.white),
                 ),
                 title: Text('${widget.timesheetModel.project}',
