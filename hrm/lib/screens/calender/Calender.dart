@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hrm/models/timesheet_model.dart';
 import 'package:hrm/screens/timesheet/timesheet_list.dart';
 import 'package:hrm/services/timesheet_service.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -14,7 +15,8 @@ class Calender extends StatefulWidget {
 
 class _CalenderState extends State<Calender> {
   CalendarController _calendarController;
-  String selectedDate;
+  String selectedDate = DateFormat('y/MM/d').format(DateTime.now());
+
   @override
   void initState() {
     super.initState();
@@ -39,13 +41,14 @@ class _CalenderState extends State<Calender> {
               child: TableCalendar(
                 onDaySelected: (date, events) {
                   setState(() {
-                    selectedDate = date.toString();
+                    selectedDate = DateFormat('y/MM/d').format(date);
                   });
                 },
                 calendarController: _calendarController,
               ),
             ),
-            Expanded(
+            Container(
+              height: 200,
                 child: TimesheetList())
           ],
         ),
