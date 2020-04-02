@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hrm/models/timesheet_model.dart';
+import 'package:hrm/screens/timesheet/timesheet_list.dart';
+import 'package:hrm/services/timesheet_service.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Calender extends StatefulWidget {
+  final String uid;
+  Calender({this.uid});
   @override
   _CalenderState createState() => _CalenderState();
 }
 
 class _CalenderState extends State<Calender> {
   CalendarController _calendarController;
-
+  String selectedDate;
   @override
   void initState() {
     super.initState();
@@ -23,8 +29,27 @@ class _CalenderState extends State<Calender> {
 
   @override
   Widget build(BuildContext context) {
-    return TableCalendar(
-      calendarController: _calendarController,
+    return StreamProvider<List<TimesheetModel>>.value(
+      value: TimesheetService(uid: widget.uid,date: selectedDate).getTimesheet,
+          child: Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
+              child: TableCalendar(
+                onDaySelected: (date, events) {
+                  setState(() {
+                    selectedDate = date.toString();
+                  });
+                },
+                calendarController: _calendarController,
+              ),
+            ),
+            Expanded(
+                child: TimesheetList())
+          ],
+        ),
+      ),
     );
   }
 }
