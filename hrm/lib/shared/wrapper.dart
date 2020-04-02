@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hrm/models/user_model.dart';
 import 'package:hrm/screens/authentication/sign_in.dart';
 import 'package:hrm/screens/dashboard/dashboard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,7 +21,7 @@ class _WrapperState extends State<Wrapper> {
     if(user == null) {
       Navigator.pushReplacementNamed(context, '/signin');
     } else {
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      Navigator.pushReplacementNamed(context, '/dashboard',arguments: UserModel(email: user));
     }
 
   }
