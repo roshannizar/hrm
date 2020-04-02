@@ -45,6 +45,7 @@ class TimesheetService {
     return timesheetCollection
         .document(uid)
         .collection('mytimesheet')
+        .where('date',isEqualTo: date)
         .snapshots()
         .map(_timesheetCollection);
   }
