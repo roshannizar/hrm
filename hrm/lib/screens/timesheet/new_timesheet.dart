@@ -57,13 +57,14 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           format: format,
+                          validator: (val) => val == null ? '*' : null,
                           onChanged: (value) {
                             datetime = DateFormat('y/MM/d').format(value);
                           },
                           onShowPicker: (context, currentValue) {
                             setState(() {
-                              datetime =
-                                  DateFormat('y/MM/d').format(currentValue ?? DateTime.now());
+                              datetime = DateFormat('y/MM/d')
+                                  .format(currentValue ?? DateTime.now());
                             });
                             return showDatePicker(
                                 context: context,
@@ -193,6 +194,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               labelText: 'Task Number',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
+                          validator: (val) => val.isEmpty ? '*' : null,
                           onChanged: (value) {
                             setState(() {
                               taskNo = value;
@@ -211,6 +213,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               labelText: 'Description',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
+                          validator: (val) => val.isEmpty ? '*' : null,
                           onChanged: (value) {
                             setState(() {
                               description = value;
@@ -230,6 +233,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               labelText: 'Time spent',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
+                          validator: (val) => val.isEmpty ? '*' : null,
                           onChanged: (value) {
                             timeSpent = value;
                           },
