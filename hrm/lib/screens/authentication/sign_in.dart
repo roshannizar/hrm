@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hrm/services/auth_service.dart';
 
 class SignIn extends StatefulWidget {
@@ -9,34 +10,54 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
-      body: Container(
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.deepPurple));
+    return SafeArea(
+        child: Scaffold(
+            body: Container(
+      alignment: Alignment.center,
+      color: Colors.deepPurple,
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        margin: const EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FlatButton.icon(
-              onPressed: () async {
-                await AuthService().signInWithMicrosoft();
-                Navigator.pushReplacementNamed(context, '/dashboard');
-              },
-              icon: Icon(Icons.arrow_forward),
-              label: Text('Login with Microsoft'),
+            Container(
+              child: Image.asset('assets/time.jpg'),
             ),
-             FlatButton.icon(
-              onPressed: () async{
-                await AuthService().signOutMicrosoft();
-
-                Navigator.pushNamed(context, '/');
-              },
-              icon: Icon(Icons.exit_to_app),
-              label: Text('Logout with Microsoft'),
+            Container(
+              child: Text('Timesheet Management',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+            ),
+            Container(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: FlatButton.icon(
+                        onPressed: () {},
+                        color: Colors.black,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        icon: Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        ),
+                        label: Text('Sign In with Microsoft',
+                            style: TextStyle(color: Colors.white))),
+                  ),
+                  Text('Inexis - HRM',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ),
             ),
           ],
         ),
       ),
-    );
+    )));
   }
 }

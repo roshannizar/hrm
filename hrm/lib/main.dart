@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hrm/screens/dashboard/dashboard.dart';
 import 'package:hrm/shared/wrapper.dart';
 
@@ -10,7 +11,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(initialRoute: '/', routes: {
+        SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.black));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/', routes: {
       '/': (context) => Wrapper(),
       '/signin': (context) => SignIn(),
       '/dashboard': (context) => Dashboard()
