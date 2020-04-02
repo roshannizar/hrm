@@ -12,7 +12,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-
     final UserModel args = ModalRoute.of(context).settings.arguments;
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.black));
@@ -24,8 +23,13 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.filter_list),
+          ),
+          IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/create');
+              Navigator.pushNamed(context, '/create',
+                  arguments: UserModel(email: args.email));
             },
             icon: Icon(Icons.add_box, color: Colors.blue),
           )
@@ -44,7 +48,6 @@ class _DashboardState extends State<Dashboard> {
             icon: Icon(Icons.exit_to_app),
           ),
         ),
-        
       ),
       body: Container(
         alignment: Alignment.topCenter,
