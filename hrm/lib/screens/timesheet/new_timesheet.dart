@@ -54,7 +54,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Date',
+                              labelText: 'Date *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           format: format,
@@ -83,7 +83,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Projects',
+                              labelText: 'Projects *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           child: DropdownButtonHideUnderline(
@@ -119,7 +119,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Process',
+                              labelText: 'Process *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           child: DropdownButtonHideUnderline(
@@ -158,7 +158,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Task Type',
+                              labelText: 'Task Type *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           child: DropdownButtonHideUnderline(
@@ -196,7 +196,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Task Number',
+                              labelText: 'Task Number *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           validator: (val) => val.isEmpty ? '*' : null,
@@ -216,7 +216,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Description',
+                              labelText: 'Description *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           validator: (val) => val.isEmpty ? '*' : null,
@@ -237,7 +237,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Time spent',
+                              labelText: 'Time spent *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           validator: (val) => val.isEmpty ? '*' : null,
@@ -254,7 +254,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.grey[200])),
-                              labelText: 'Task Status',
+                              labelText: 'Task Status *',
                               labelStyle:
                                   TextStyle(fontWeight: FontWeight.bold)),
                           child: DropdownButtonHideUnderline(
@@ -288,6 +288,8 @@ class _NewTimesheetState extends State<NewTimesheet> {
                   margin: const EdgeInsets.all(10),
                   child: FlatButton.icon(
                       onPressed: () async {
+
+                        if(_formKey.currentState.validate()) {
                         setState(() {
                           loading = true;
                         });
@@ -314,6 +316,9 @@ class _NewTimesheetState extends State<NewTimesheet> {
                           setState(() {
                             loading = false;
                           });
+                        }
+                        } else {
+                          print('form is invalid');
                         }
                       },
                       padding: const EdgeInsets.all(10),
