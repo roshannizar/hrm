@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hrm/screens/dashboard/dashboard.dart';
+import 'package:hrm/screens/timesheet/new_timesheet.dart';
 import 'package:hrm/shared/wrapper.dart';
 
 import 'screens/authentication/sign_in.dart';
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/', routes: {
       '/': (context) => Wrapper(),
       '/signin': (context) => SignIn(),
-      '/dashboard': (context) => Dashboard()
+      '/dashboard': (context) => Dashboard(),
+      '/create':(context) => NewTimesheet()
     });
   }
 }
