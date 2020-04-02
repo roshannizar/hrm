@@ -27,9 +27,31 @@ class TimesheetService {
     });
   }
 
+  Future updateTimesheet(TimesheetModel timesheet) async {
+    return await timesheetCollection.document(uid).collection('mytimesheet').document(timesheet.docid).updateData({
+      'date': timesheet.date,
+      'project': timesheet.project,
+      'process': timesheet.process,
+      'taskType': timesheet.taskType,
+      'taskNo': timesheet.taskNo,
+      'description': timesheet.description,
+      'timespent': timesheet.timeSpent,
+      'status': timesheet.status
+    }).catchError((onError){
+      return onError.toString();
+    });
+  }
+
+  Future deleteTimesheet(TimesheetModel timesheetModel) async {
+    return await timesheetCollection.document(uid).collection('mytimesheet').document(timesheetModel.docid).delete().catchError((onError){
+      return onError.toString();
+    });
+  }
+
   List<TimesheetModel> _timesheetCollection(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       return TimesheetModel(
+        docid: doc.documentID ?? '',
           date: doc.data['date'] ?? '',
           project: doc.data['project'] ?? '',
           process: doc.data['process'] ?? '',
