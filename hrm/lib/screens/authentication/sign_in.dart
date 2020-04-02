@@ -39,7 +39,10 @@ class _SignInState extends State<SignIn> {
                   Container(
                     margin: const EdgeInsets.only(bottom: 10),
                     child: FlatButton.icon(
-                        onPressed: () {},
+                        onPressed: () async {
+                          await AuthService().signInWithMicrosoft();
+                          Navigator.pushReplacementNamed(context, '/dashboard');
+                        },
                         color: Colors.black,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hrm/services/auth_service.dart';
+import 'package:flutter/services.dart';
+import 'package:hrm/screens/calender/Calender.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -9,19 +10,26 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.black));
     return Scaffold(
       appBar: AppBar(
-        title: Text('Testing'),
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.menu, color: Colors.black),
+        ),
+        title: Text('Timesheet', style: TextStyle(color: Colors.black)),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.add_box, color: Colors.blue),
+          )
+        ],
       ),
       body: Container(
-        child: IconButton(
-          onPressed: () async {
-            await AuthService().signOutMicrosoft();
-            Navigator.pushReplacementNamed(context, '/signin');
-          },
-          icon: Icon(Icons.exit_to_app),
-        ),
-      ),
+          alignment: Alignment.topCenter, color: Colors.white, child: Calender()),
     );
   }
 }
