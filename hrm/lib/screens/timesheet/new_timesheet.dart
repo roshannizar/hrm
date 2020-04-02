@@ -48,6 +48,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                       children: <Widget>[
                         DateTimeField(
                           decoration: InputDecoration(
+                            icon: Icon(Icons.date_range),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -76,6 +77,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                         SizedBox(height: 10),
                         InputDecorator(
                           decoration: InputDecoration(
+                            icon: Icon(Icons.insert_drive_file),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -111,6 +113,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                         SizedBox(height: 10),
                         InputDecorator(
                           decoration: InputDecoration(
+                            icon: Icon(Icons.find_replace),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -149,6 +152,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                         SizedBox(height: 10),
                         InputDecorator(
                           decoration: InputDecoration(
+                            icon: Icon(Icons.assignment_turned_in),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -186,6 +190,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                         SizedBox(height: 10),
                         TextFormField(
                           decoration: InputDecoration(
+                            icon: Icon(Icons.format_list_numbered),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -205,6 +210,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                         TextFormField(
                           maxLines: 5,
                           decoration: InputDecoration(
+                            icon: Icon(Icons.info_outline),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -225,6 +231,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                           keyboardType:
                               TextInputType.numberWithOptions(decimal: true),
                           decoration: InputDecoration(
+                            icon: Icon(Icons.access_time),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
@@ -241,6 +248,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                         SizedBox(height: 10),
                         InputDecorator(
                           decoration: InputDecoration(
+                            icon: Icon(Icons.timeline),
                               fillColor: Colors.grey[200],
                               filled: true,
                               enabledBorder: OutlineInputBorder(
