@@ -41,7 +41,7 @@ class _CalenderState extends State<Calender> {
               child: TableCalendar(
                 onDaySelected: (date, events) {
                   setState(() {
-                    selectedDate = DateFormat('y/MM/d').format(date);
+                    selectedDate = '${date.year}/${date.month.toString().padLeft(2,'0')}/${date.day.toString().padLeft(2,'0')}';
                   });
                 },
                 calendarController: _calendarController,

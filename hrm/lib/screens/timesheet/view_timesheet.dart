@@ -13,7 +13,7 @@ class ViewTimesheet extends StatefulWidget {
 
 class _ViewTimesheetState extends State<ViewTimesheet> {
   String user;
-  final format = DateFormat('y/MM/d');
+  final format = DateFormat('y-MM-d H:m:s');
   bool loading = false;
   bool count = true;
   String project,
@@ -89,9 +89,10 @@ class _ViewTimesheetState extends State<ViewTimesheet> {
                           labelText: 'Date *',
                           labelStyle: TextStyle(fontWeight: FontWeight.bold)),
                       format: format,
+                      initialValue: DateTime.parse(datetime.replaceAll(new RegExp(r'/'),r'')),
                       validator: (val) => val == null ? '*' : null,
                       onChanged: (value) {
-                        datetime = DateFormat('y/MM/d').format(value);
+                        datetime = '${value.year}/${value.month.toString().padLeft(2,'0')}/${value.day.toString().padLeft(2,'0')}';
                       },
                       onShowPicker: (context, currentValue) {
                         setState(() {

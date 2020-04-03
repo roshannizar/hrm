@@ -59,7 +59,7 @@ class _NewTimesheetState extends State<NewTimesheet> {
                           format: format,
                           validator: (val) => val == null ? '*' : null,
                           onChanged: (value) {
-                            datetime = DateFormat('y/MM/d').format(value);
+                            datetime = '${value.year}/${value.month.toString().padLeft(2,'0')}/${value.day.toString().padLeft(2,'0')}';
                           },
                           onShowPicker: (context, currentValue) {
                             setState(() {
