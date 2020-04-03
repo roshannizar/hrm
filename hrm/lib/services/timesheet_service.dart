@@ -42,8 +42,8 @@ class TimesheetService {
     });
   }
 
-  Future deleteTimesheet(TimesheetModel timesheetModel) async {
-    return await timesheetCollection.document(uid).collection('mytimesheet').document(timesheetModel.docid).delete().catchError((onError){
+  Future deleteTimesheet(String docid) async {
+    return await timesheetCollection.document(uid).collection('mytimesheet').document(docid).delete().catchError((onError){
       return onError.toString();
     });
   }

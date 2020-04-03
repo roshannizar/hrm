@@ -22,7 +22,7 @@ class _TimesheetTileState extends State<TimesheetTile> {
               ListTile(
                 trailing: IconButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/view');
+                    Navigator.pushNamed(context, '/view',arguments: widget.timesheetModel);
                   },
                   icon: Icon(Icons.remove_red_eye, color: Colors.white),
                 ),
