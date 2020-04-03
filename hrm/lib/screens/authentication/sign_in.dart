@@ -41,7 +41,7 @@ class _SignInState extends State<SignIn> {
                     child: FlatButton.icon(
                         onPressed: () async {
                           await AuthService().signInWithMicrosoft();
-                          Navigator.pushReplacementNamed(context, '/dashboard');
+                          Navigator.pushReplacementNamed(context, '/');
                         },
                         color: Colors.black,
                         shape: RoundedRectangleBorder(
