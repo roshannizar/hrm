@@ -20,7 +20,7 @@ class TimesheetService {
       'taskType': timesheet.taskType,
       'taskNo': timesheet.taskNo,
       'description': timesheet.description,
-      'timespent': timesheet.timeSpent,
+      'timeSpent': timesheet.timeSpent,
       'status': timesheet.status
     }).catchError((onError) {
       return onError.toString();
@@ -35,7 +35,7 @@ class TimesheetService {
       'taskType': timesheet.taskType,
       'taskNo': timesheet.taskNo,
       'description': timesheet.description,
-      'timespent': timesheet.timeSpent,
+      'timeSpent': timesheet.timeSpent,
       'status': timesheet.status
     }).catchError((onError){
       return onError.toString();
