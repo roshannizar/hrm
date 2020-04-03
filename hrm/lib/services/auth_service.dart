@@ -26,6 +26,7 @@ class AuthService {
       String accessToken = await oauth.getAccessToken();
       Map<String, dynamic> payload = Jwt.parseJwt(accessToken);
       _prefs.setString('user', payload['upn'].toString());
+      _prefs.setString('displayName', payload['name'].toString());
       return _userModel(payload);
     } catch (e) {
       print(e);

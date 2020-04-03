@@ -27,7 +27,6 @@ class _NewTimesheetState extends State<NewTimesheet> {
   @override
   Widget build(BuildContext context) {
     final UserModel args = ModalRoute.of(context).settings.arguments;
-
     return loading
         ? Loading()
         : Scaffold(

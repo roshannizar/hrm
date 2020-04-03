@@ -35,7 +35,9 @@ class _DashboardState extends State<Dashboard> {
           child: ListView(
         children: <Widget>[
           DrawerHeader(
-            child: Text('Welcome'),
+            child: Container(
+              alignment: Alignment.bottomLeft,
+              child: Text('${args.name}',style: TextStyle(color: Colors.white,fontSize: 20))),
             decoration: BoxDecoration(
                 color: Colors.blueAccent,
                 image: DecorationImage(

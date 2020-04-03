@@ -10,20 +10,20 @@ class Wrapper extends StatefulWidget {
 }
 
 class _WrapperState extends State<Wrapper> {
-  String user;
+  String user, name;
 
-  signInChecker() async{
-
+  signInChecker() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    
-    user = prefs.getString('user');
 
-    if(user == null) {
+    user = prefs.getString('user');
+    name = prefs.getString('displayName');
+
+    if (user == null) {
       Navigator.pushReplacementNamed(context, '/signin');
     } else {
-      Navigator.pushReplacementNamed(context, '/dashboard',arguments: UserModel(email: user));
+      Navigator.pushReplacementNamed(context, '/dashboard',
+          arguments: UserModel(email: user, name: name));
     }
-
   }
 
   @override
