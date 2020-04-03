@@ -23,10 +23,6 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.filter_list),
-          ),
-          IconButton(
             onPressed: () {
               Navigator.pushNamed(context, '/create',
                   arguments: UserModel(email: args.email));
@@ -36,19 +32,37 @@ class _DashboardState extends State<Dashboard> {
         ],
       ),
       drawer: Drawer(
-        child: DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.blue,
+          child: ListView(
+        children: <Widget>[
+          DrawerHeader(
+            child: Text('Welcome'),
+            decoration: BoxDecoration(
+                color: Colors.blueAccent,
+                image: DecorationImage(
+                    image: AssetImage('assets/timesheet.webp'))),
           ),
-          child: IconButton(
-            onPressed: () async {
+          ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, '/create',
+                  arguments: UserModel(email: args.email));
+            },
+            title: Text('Create Timesheet'),
+            leading: Icon(Icons.add_box),
+          ),
+          ListTile(
+            title: Text('Settings'),
+            leading: Icon(Icons.settings),
+          ),
+          ListTile(
+            onTap: () async {
               await AuthService().signOutMicrosoft();
               Navigator.pushReplacementNamed(context, '/signin');
             },
-            icon: Icon(Icons.exit_to_app),
+            title: Text('Sign Out'),
+            leading: Icon(Icons.exit_to_app),
           ),
-        ),
-      ),
+        ],
+      )),
       body: Container(
         alignment: Alignment.topCenter,
         color: Colors.white,
