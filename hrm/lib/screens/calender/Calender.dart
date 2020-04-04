@@ -15,7 +15,8 @@ class Calender extends StatefulWidget {
 
 class _CalenderState extends State<Calender> {
   CalendarController _calendarController;
-  String selectedDate = DateFormat('y/MM/d').format(DateTime.now());
+  String selectedDate =
+      '${DateTime.now().year}/${DateTime.now().month.toString().padLeft(2, '0')}/${DateTime.now().day.toString().padLeft(2, '0')}';
 
   @override
   void initState() {
@@ -32,8 +33,8 @@ class _CalenderState extends State<Calender> {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<TimesheetModel>>.value(
-      value: TimesheetService(uid: widget.uid,date: selectedDate).getTimesheet,
-          child: Container(
+      value: TimesheetService(uid: widget.uid, date: selectedDate).getTimesheet,
+      child: Container(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -41,15 +42,14 @@ class _CalenderState extends State<Calender> {
               child: TableCalendar(
                 onDaySelected: (date, events) {
                   setState(() {
-                    selectedDate = '${date.year}/${date.month.toString().padLeft(2,'0')}/${date.day.toString().padLeft(2,'0')}';
+                    selectedDate =
+                        '${date.year}/${date.month.toString().padLeft(2, '0')}/${date.day.toString().padLeft(2, '0')}';
                   });
                 },
                 calendarController: _calendarController,
               ),
             ),
-            Container(
-              height: 200,
-                child: TimesheetList())
+            Container(height: 200, child: TimesheetList())
           ],
         ),
       ),
